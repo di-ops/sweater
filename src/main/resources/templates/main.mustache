@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Main page</title>
-</head>
-<body>
-{{some}}
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Main page</title>
+    </head>
+    <body>
+        <form method="post">
+            <input type="text" name="text" placeholder="Input text of your message">
+            <input type="text" name="tag" placeholder="Create tags for search">
+            <input type= "submit" value="Add message">
+        </form>
+        <div>
+            <h3>Список сообщений</h3>
+        </div>
+        <form method="post" action="filter">
+            <input type="text" name="filter" placeholder="Search by tag">
+            <button type="submit">Find</button>
+        </form>
+        {{#messages}}
+        <div>
+            <strong>{{id}}</strong>
+            <span>{{text}}</span>
+            <i>{{tag}}</i>
+        </div>
+        {{/messages}}
+    </body>
 </html>
