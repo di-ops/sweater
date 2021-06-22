@@ -5,9 +5,15 @@
         <title>Main page</title>
     </head>
     <body>
+    <h3></h3>
+    <form action="/logout" method="post">
+        <input type="submit" value="Sign Out"/>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+    </form>
         <form method="post">
             <input type="text" name="text" placeholder="Input text of your message">
             <input type="text" name="tag" placeholder="Create tags for search">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
             <input type= "submit" value="Add message">
         </form>
         <div>
@@ -15,6 +21,7 @@
         </div>
         <form method="post" action="filter">
             <input type="text" name="filter" placeholder="Search by tag">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
             <button type="submit">Find</button>
         </form>
         {{#messages}}
