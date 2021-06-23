@@ -3,7 +3,7 @@ package com.myCompany.sweater.domain;
 import org.springframework.security.core.GrantedAuthority;
 
 public enum Role implements GrantedAuthority {
-    USER, MODERATOR;
+    USER, MODERATOR, ADMIN;
 
     @Override
     public String getAuthority() {
