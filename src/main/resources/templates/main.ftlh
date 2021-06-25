@@ -4,9 +4,10 @@
     <h3></h3>
     <@l.logout/>
     <span><a href="/user"> User list</a></span>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <input type="text" name="text" placeholder="Input text of your message">
         <input type="text" name="tag" placeholder="Create tags for search">
+        <input type="file" name="file">
         <input type="hidden" name="_csrf" value="${_csrf.token}">
         <input type= "submit" value="Add message">
     </form>
@@ -23,6 +24,11 @@
             <strong>${message.authorName}</strong>
             <span>${message.text}</span>
             <i>${message.tag}</i>
+            <div>
+                <#if message.filename??>
+                    <img src="img/${message.filename}">
+                </#if>
+            </div>
         </div>
     <#else>
         No messages
